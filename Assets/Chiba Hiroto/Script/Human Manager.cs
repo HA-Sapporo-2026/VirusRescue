@@ -43,7 +43,7 @@ public class HumanManager : MonoBehaviour
 
     public Camera mainCamera;
 
-
+    public GameObject[] tents;
 
     public int HumanCount = 0;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -148,10 +148,10 @@ public class HumanManager : MonoBehaviour
                 }
                 for (; k > 1; k--)
                 {
-                    int Variant = UnityEngine.Random.Range(0, 5);
+                    //int Variant = UnityEngine.Random.Range(0, 5);
                     //Debug.Log(i);
 
-                    PositionSearch(k - 1 + (4 * Variant));
+                    PositionSearch(k - 1 + (maxHuman /***/ /*Variant*/));
                     for (float i = 7; /*i > -20*/; i -= 0.000001f)
                     {
                         //if (i < -3)
@@ -167,12 +167,12 @@ public class HumanManager : MonoBehaviour
 
                         if (Vector3.Distance(/*human[k].gameObject.transform.*/position, player/*Status.gameObject*/.transform.position) <= SpawnLimitDistance + i)
                         {
-                            PositionSearch(k - 1 + (4 * Variant));
+                            PositionSearch(k - 1 + (maxHuman /***/ /*Variant*/));
                         }
                         else break;
                     }
-                    human[k - 1 + (4 * Variant)].isHere = true;
-                    human[k - 1 + (4 * Variant)].gameObject.SetActive(true);
+                    human[k - 1 + (maxHuman /***/ /*Variant*/)].isHere = true;
+                    human[k - 1 + (maxHuman /***/ /*Variant*/)].gameObject.SetActive(true);
                 }
             }
         }
@@ -200,7 +200,6 @@ public class HumanManager : MonoBehaviour
         //Debug.Log(Num);
         position = new Vector3(UnityEngine.Random.Range(HumanPositionRangeMinus[Range].x, HumanPositionRangePlus[Range].x), UnityEngine.Random.Range(HumanPositionRangeMinus[Range].y, HumanPositionRangePlus[Range].y), 0);
         human[Num].gameObject.transform.position = position;
-        
     }
     
 }
