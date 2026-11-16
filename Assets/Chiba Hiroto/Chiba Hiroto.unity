@@ -1213395,7 +1213395,7 @@ MonoBehaviour:
   maxHumanPerType: 1
   maxHumanCanInstantiate: 4
   InstantiateProbability: 50
-  InstantiateTimer: 0
+  InstantiateTimer: 5
   InstantiateTime: 5
   INstantiateNum: 1
   SpawnLimitDistance: 7

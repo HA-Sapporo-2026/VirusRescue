@@ -139,6 +139,9 @@ public class HumanManager : MonoBehaviour
                     {
                         InstantiateTimer = InstantiateTime;
                         float Per/*UnityEngine.Random.Range(0, 100f)*/;
+                        if (HumanCount == 0)
+                        { Per = 100; }
+                        else
                         Per = UnityEngine.Random.Range(0f, 100f);
                         if (Per <= InstantiateProbability)
                         {
