@@ -1213392,7 +1213392,12 @@ MonoBehaviour:
   - {fileID: 5944063749787171083, guid: 19d362e8a8d36e44d86b08b76bccb299, type: 3}
   - {fileID: 7624075444141396713, guid: c18397128f31e0a498555d453297e00e, type: 3}
   HumanPrefab: {fileID: 0}
-  maxHuman: 1
+  maxHumanPerType: 1
+  maxHumanCanInstantiate: 4
+  InstantiateProbability: 50
+  InstantiateTimer: 0
+  InstantiateTime: 5
+  INstantiateNum: 1
   SpawnLimitDistance: 7
   HumanPositionRangePlus:
   - {x: 8.5, y: 8.1}

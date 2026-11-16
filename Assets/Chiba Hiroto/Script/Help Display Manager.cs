@@ -25,7 +25,7 @@ public class HelpDisplayManager : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        maxDisplay = humanManager.maxHuman * 6;
+        maxDisplay = humanManager.maxHumanPerType * 6;
         // 指定された最大人数分の配列を生成する
         displays = new HelpDisplay[maxDisplay];
 

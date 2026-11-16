@@ -72,7 +72,7 @@ public class PlayerStatus : MonoBehaviour
         humanManager = FindAnyObjectByType<HumanManager>();
         status_Display = FindAnyObjectByType<StatusDisplay>();
         cameraMoving = FindAnyObjectByType<CameraMoving>();
-        escorted_Hp = new int[200/*humanManager.maxHuman * 6*/];
+        escorted_Hp = new int[200/*humanManager.maxHumanPerType * 6*/];
         for (int i = 0; i < escorted_Hp.Length; i++)
         {
             escorted_Hp[i] = -99;
@@ -192,7 +192,7 @@ public class PlayerStatus : MonoBehaviour
             {
                 nowEscorted++;
             }
-            if (nowEscorted >= humanManager.maxHuman/*escorted_Hp.Length*/)
+            if (nowEscorted >= humanManager.maxHumanPerType/*escorted_Hp.Length*/)
             {
                 Debug.Log("まんいんです");
             }

@@ -16,7 +16,7 @@ public class HelpVoice : MonoBehaviour
     {
         player = GameObject.FindGameObjectWithTag("Player");
         manager = FindAnyObjectByType<HumanManager>();
-        for (int i = 0; i < manager.maxHuman; i++)
+        for (int i = 0; i < manager.maxHumanPerType; i++)
         {
             //Help[i] = manager.human[i].gameObject;
         }
@@ -27,7 +27,7 @@ public class HelpVoice : MonoBehaviour
     {
         Pause pause = FindAnyObjectByType<Pause>();
         if (pause.Paused) return;
-        for (int i = 0; i < manager.maxHuman; i++)
+        for (int i = 0; i < manager.maxHumanPerType; i++)
         {
             audioSource = manager.human[i].GetComponent<AudioSource>();
             audioSource.volume = helpVolume / Vector2.Distance(player.transform.position, manager.human[i].gameObject.transform.position);

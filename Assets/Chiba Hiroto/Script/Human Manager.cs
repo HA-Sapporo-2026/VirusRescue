@@ -18,14 +18,18 @@ public class HumanManager : MonoBehaviour
 
 
 
-    // 表示する要救助者の最大数
-    public int maxHuman = 20;
+    // 種類ごとの要救助者の最大数
+    public int maxHumanPerType = 20;
 
+    //1度にマップ上にいられる要救助者の最大数
+    [SerializeField] int maxHumanCanInstantiate = 4;
+    //5秒ごとの要救助者が生成される確率
+    [SerializeField] float InstantiateProbability = 50f;
+    [SerializeField] float InstantiateTimer = 0f;
+    [SerializeField] float InstantiateTime = 5f;
 
-    // 道路の大きさをVector2の座標でとって、
-    // それを複数用意し、その中からランダムに
-    // スポーンさせるアイデアも考えておこう
-
+    //1度に生成される要救助者の数
+    [SerializeField] int INstantiateNum = 1;
 
 
     public float SpawnLimitDistance = 7f;
@@ -54,7 +58,7 @@ public class HumanManager : MonoBehaviour
         mainCamera = FindAnyObjectByType<Camera>();
 
         // 指定された最大人数分の配列を生成する
-        human = new Human[maxHuman * 6];
+        human = new Human[maxHumanPerType * 6];
 
         // 要救助者用のプレハブを一つの配列に格納する
         Human[] prefabs =
@@ -64,9 +68,9 @@ public class HumanManager : MonoBehaviour
             // このループで生成するプレハブを取得する
             HumanPrefab = prefabs[i];
 
-            for (int j = 0; j < maxHuman; j++)
+            for (int j = 0; j < maxHumanPerType; j++)
             {
-                int index = j + (i * maxHuman);
+                int index = j + (i * maxHumanPerType);
 
                 // Object.Instantiateを使用して
                 // 要救助者オブジェクトを自動的に生成する
@@ -127,53 +131,101 @@ public class HumanManager : MonoBehaviour
                 {
                     RangeCanSelect = 2;
                 }
-                float Per/*UnityEngine.Random.Range(0, 100f)*/;
-                Per = UnityEngine.Random.Range(0, 100f);
-                int k = 1;
-                if (Per < 2)
-                {
-                    k = 4;
-                }
-                else if (Per < 8 + 2)
-                {
-                    k = 3;
-                }
-                else if (Per < 20 + 8 + 2)
-                {
-                    k = 2;
-                }
-                else if (Per < 70 + 20 + 8 + 2)
-                {
-                    k = 1;
-                }
-                for (; k > 1; k--)
-                {
-                    //int Variant = UnityEngine.Random.Range(0, 5);
-                    //Debug.Log(i);
 
-                    PositionSearch(k - 1 + (maxHuman /***/ /*Variant*/));
-                    for (float i = 7; /*i > -20*/; i -= 0.000001f)
+                if (HumanCount < maxHumanCanInstantiate)
+                {
+                    InstantiateTimer -= Time.deltaTime;
+                    if (InstantiateTimer < 0)
                     {
-                        //if (i < -3)
-                        //    i = -3;
-                        for (int f = 0; f < RangeCanSelect; f++)
+                        InstantiateTimer = InstantiateTime;
+                        float Per/*UnityEngine.Random.Range(0, 100f)*/;
+                        Per = UnityEngine.Random.Range(0f, 100f);
+                        if (Per <= InstantiateProbability)
                         {
-                            RangeDontSelect[f] = false;
-                            if (playerStatus.gameObject.transform.position.x! >= HumanPositionRangePlus[f].x && playerStatus.gameObject.transform.position.x! <= HumanPositionRangeMinus[f].x && playerStatus.gameObject.transform.position.y! >= HumanPositionRangePlus[f].y && playerStatus.gameObject.transform.position.y! <= HumanPositionRangeMinus[f].y)
+                            for (int i = 0; i < maxHumanPerType; i++)
                             {
-                                RangeDontSelect[f] = true;
-                            }
-                        }
+                                if (!human[i].gameObject.activeInHierarchy)
+                                {
+                                    //for (;;)
+                                    //{
+                                    //if (i < -3)
+                                    //    i = -3;
+                                    for (int f = 0; f < RangeCanSelect; f++)
+                                    {
+                                        RangeDontSelect[f] = false;
+                                        if (playerStatus.gameObject.transform.position.x! >= HumanPositionRangePlus[f].x && playerStatus.gameObject.transform.position.x! <= HumanPositionRangeMinus[f].x && playerStatus.gameObject.transform.position.y! >= HumanPositionRangePlus[f].y && playerStatus.gameObject.transform.position.y! <= HumanPositionRangeMinus[f].y)
+                                        {
+                                            RangeDontSelect[f] = true;
+                                        }
+                                    }
+                                    //}
 
-                        if (Vector3.Distance(/*human[k].gameObject.transform.*/position, player/*Status.gameObject*/.transform.position) <= SpawnLimitDistance + i)
-                        {
-                            PositionSearch(k - 1 + (maxHuman /***/ /*Variant*/));
+
+                                    PositionSearch(i);
+                                    if (Vector3.Distance(/*human[k].gameObject.transform.*/position, player/*Status.gameObject*/.transform.position) !<= SpawnLimitDistance + i)
+                                    {}
+                                    else
+                                    {
+                                        human[i].isHere = true;
+                                        human[i].gameObject.SetActive(true);
+                                    }
+                                }
+                            }   
                         }
-                        else break;
                     }
-                    human[k - 1 + (maxHuman /***/ /*Variant*/)].isHere = true;
-                    human[k - 1 + (maxHuman /***/ /*Variant*/)].gameObject.SetActive(true);
                 }
+                else
+                {
+                    InstantiateTimer = InstantiateTime;
+                }
+
+                ////float Per/*UnityEngine.Random.Range(0, 100f)*/;
+                ////Per = UnityEngine.Random.Range(0, 100f);
+                //int k = 1;
+                ////if (Per < 2)
+                ////{
+                ////    k = 4;
+                ////}
+                ////else if (Per < 8 + 2)
+                ////{
+                ////    k = 3;
+                ////}
+                ////else if (Per < 20 + 8 + 2)
+                ////{
+                ////    k = 2;
+                ////}
+                ////else if (Per < 70 + 20 + 8 + 2)
+                ////{
+                ////    k = 1;
+                ////}
+                //for (; k > 1; k--)
+                //{
+                //    //int Variant = UnityEngine.Random.Range(0, 5);
+                //    //Debug.Log(i);
+
+                //    PositionSearch(k - 1 + (maxHumanPerType /***/ /*Variant*/));
+                //    for (float i = 7; /*i > -20*/; i -= 0.000001f)
+                //    {
+                //        //if (i < -3)
+                //        //    i = -3;
+                //        for (int f = 0; f < RangeCanSelect; f++)
+                //        {
+                //            RangeDontSelect[f] = false;
+                //            if (playerStatus.gameObject.transform.position.x! >= HumanPositionRangePlus[f].x && playerStatus.gameObject.transform.position.x! <= HumanPositionRangeMinus[f].x && playerStatus.gameObject.transform.position.y! >= HumanPositionRangePlus[f].y && playerStatus.gameObject.transform.position.y! <= HumanPositionRangeMinus[f].y)
+                //            {
+                //                RangeDontSelect[f] = true;
+                //            }
+                //        }
+
+                //        if (Vector3.Distance(/*human[k].gameObject.transform.*/position, player/*Status.gameObject*/.transform.position) <= SpawnLimitDistance + i)
+                //        {
+                //            PositionSearch(k - 1 + (maxHumanPerType /***/ /*Variant*/));
+                //        }
+                //        else break;
+                //    }
+                //    human[k - 1 + (maxHumanPerType /***/ /*Variant*/)].isHere = true;
+                //    human[k - 1 + (maxHumanPerType /***/ /*Variant*/)].gameObject.SetActive(true);
+                //}
             }
         }
         HumanCount = 0;
@@ -183,7 +235,7 @@ public class HumanManager : MonoBehaviour
     public void PositionSearch(int Num)
     {
         int Range = UnityEngine.Random.Range(0, RangeCanSelect);
-        for (;!RangeDontSelect[Range]; )
+        for (int i = 1;i <=5 ;i++ )
         {
             if (RangeDontSelect[Range])
             {
