@@ -113,7 +113,7 @@ public class HumanManager : MonoBehaviour
                 }
             }
 
-            if (HumanCount <= 0)
+            if (HumanCount < human.Length)
             {
                 if (playerStatus.playerLevel >= 7)
                 {
@@ -165,15 +165,41 @@ public class HumanManager : MonoBehaviour
 
 
                                     PositionSearch(i);
-                                    if (Vector3.Distance(/*human[k].gameObject.transform.*/position, player/*Status.gameObject*/.transform.position) !<= SpawnLimitDistance + i)
-                                    {}
-                                    else
+                                    human[i].isHere = true;
+                                    human[i].gameObject.SetActive(true);
+                                    if (Vector3.Distance(position, player.transform.position) > SpawnLimitDistance + i)
                                     {
+                                        Debug.Log("Inst");
                                         human[i].isHere = true;
                                         human[i].gameObject.SetActive(true);
+                                        break;
                                     }
+
                                 }
-                            }   
+                            }
+                            //    PositionSearch(k - 1 + (maxHumanPerType /***/ /*Variant*/));
+                            //    for (float i = 7; /*i > -20*/; i -= 0.000001f)
+                            //    {
+                            //        //if (i < -3)
+                            //        //    i = -3;
+                            //        for (int f = 0; f < RangeCanSelect; f++)
+                            //        {
+                            //            RangeDontSelect[f] = false;
+                            //            if (playerStatus.gameObject.transform.position.x! >= HumanPositionRangePlus[f].x && playerStatus.gameObject.transform.position.x! <= HumanPositionRangeMinus[f].x && playerStatus.gameObject.transform.position.y! >= HumanPositionRangePlus[f].y && playerStatus.gameObject.transform.position.y! <= HumanPositionRangeMinus[f].y)
+                            //            {
+                            //                RangeDontSelect[f] = true;
+                            //            }
+                            //        }
+
+                            //        if (Vector3.Distance(/*human[k].gameObject.transform.*/position, player/*Status.gameObject*/.transform.position) <= SpawnLimitDistance + i)
+                            //        {
+                            //            PositionSearch(k - 1 + (maxHumanPerType /***/ /*Variant*/));
+                            //        }
+                            //        else break;
+                            //    }
+                            //    human[k - 1 + (maxHumanPerType /***/ /*Variant*/)].isHere = true;
+                            //    human[k - 1 + (maxHumanPerType /***/ /*Variant*/)].gameObject.SetActive(true);
+                            //}
                         }
                     }
                 }

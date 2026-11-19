@@ -1213393,9 +1213393,9 @@ MonoBehaviour:
   - {fileID: 7624075444141396713, guid: c18397128f31e0a498555d453297e00e, type: 3}
   HumanPrefab: {fileID: 0}
   maxHumanPerType: 1
-  maxHumanCanInstantiate: 4
-  InstantiateProbability: 50
-  InstantiateTimer: 5
+  maxHumanCanInstantiate: 5
+  InstantiateProbability: 25
+  InstantiateTimer: 0
   InstantiateTime: 5
   INstantiateNum: 1
   SpawnLimitDistance: 7
