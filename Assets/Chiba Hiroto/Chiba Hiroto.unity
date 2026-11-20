@@ -1254,7 +1254,7 @@ Camera:
   far clip plane: 1000
   field of view: 34
   orthographic: 1
-  orthographic size: 9
+  orthographic size: 5
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -1211046,6 +1211046,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 8846480}
     m_Modifications:
+    - target: {fileID: 12082341714904350, guid: f7fccc9dc0ec75a4f8f35663eb5ed1b1, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 318022171942141725, guid: f7fccc9dc0ec75a4f8f35663eb5ed1b1, type: 3}
       propertyPath: m_ExcludeLayers.m_Bits
       value: 512
@@ -1211098,13 +1211102,45 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2393583655481867948, guid: f7fccc9dc0ec75a4f8f35663eb5ed1b1, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2915412068322787947, guid: f7fccc9dc0ec75a4f8f35663eb5ed1b1, type: 3}
       propertyPath: m_Name
       value: Tent
       objectReference: {fileID: 0}
+    - target: {fileID: 3063651032487044509, guid: f7fccc9dc0ec75a4f8f35663eb5ed1b1, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3978512778337050589, guid: f7fccc9dc0ec75a4f8f35663eb5ed1b1, type: 3}
       propertyPath: m_SortingOrder
       value: -100
+      objectReference: {fileID: 0}
+    - target: {fileID: 5318619390354869436, guid: f7fccc9dc0ec75a4f8f35663eb5ed1b1, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5340421866968107468, guid: f7fccc9dc0ec75a4f8f35663eb5ed1b1, type: 3}
+      propertyPath: m_Color.b
+      value: 0.1764706
+      objectReference: {fileID: 0}
+    - target: {fileID: 5340421866968107468, guid: f7fccc9dc0ec75a4f8f35663eb5ed1b1, type: 3}
+      propertyPath: m_Color.g
+      value: 0.2901961
+      objectReference: {fileID: 0}
+    - target: {fileID: 5340421866968107468, guid: f7fccc9dc0ec75a4f8f35663eb5ed1b1, type: 3}
+      propertyPath: m_Color.r
+      value: 0.2841482
+      objectReference: {fileID: 0}
+    - target: {fileID: 6104571490052592918, guid: f7fccc9dc0ec75a4f8f35663eb5ed1b1, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7286450636419113221, guid: f7fccc9dc0ec75a4f8f35663eb5ed1b1, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 9046326449882928907, guid: f7fccc9dc0ec75a4f8f35663eb5ed1b1, type: 3}
       propertyPath: m_ExcludeLayers.m_Bits
@@ -1213677,7 +1213713,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9202277377844492278, guid: c5c29b5d71d52a34398e31aa2aceef76, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1213961,6 +1213997,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 8846480}
     m_Modifications:
+    - target: {fileID: 12082341714904350, guid: f7fccc9dc0ec75a4f8f35663eb5ed1b1, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 423892672172336854, guid: f7fccc9dc0ec75a4f8f35663eb5ed1b1, type: 3}
       propertyPath: m_LocalScale.x
       value: 3
@@ -1214009,9 +1214049,29 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2393583655481867948, guid: f7fccc9dc0ec75a4f8f35663eb5ed1b1, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2915412068322787947, guid: f7fccc9dc0ec75a4f8f35663eb5ed1b1, type: 3}
       propertyPath: m_Name
       value: Tent (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3063651032487044509, guid: f7fccc9dc0ec75a4f8f35663eb5ed1b1, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5318619390354869436, guid: f7fccc9dc0ec75a4f8f35663eb5ed1b1, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6104571490052592918, guid: f7fccc9dc0ec75a4f8f35663eb5ed1b1, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7286450636419113221, guid: f7fccc9dc0ec75a4f8f35663eb5ed1b1, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1214180,7 +1214240,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::HelpDisplayManager
   Player: {fileID: 0}
-  DisplayPrefab: {fileID: 4628845692239740391, guid: e469ff9f8d98f1f42ab2b1a00b824a58, type: 3}
+  DisplayPrefab: {fileID: 4628845692239740391, guid: acf351bbfbd1f7e4b9d25ad403962e94, type: 3}
   displays: []
   maxDisplay: 0
   humanManager: {fileID: 1724559263}
@@ -1214269,6 +1214329,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 8846480}
     m_Modifications:
+    - target: {fileID: 12082341714904350, guid: f7fccc9dc0ec75a4f8f35663eb5ed1b1, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 423892672172336854, guid: f7fccc9dc0ec75a4f8f35663eb5ed1b1, type: 3}
       propertyPath: m_LocalScale.x
       value: 3
@@ -1214317,9 +1214381,29 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2393583655481867948, guid: f7fccc9dc0ec75a4f8f35663eb5ed1b1, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2915412068322787947, guid: f7fccc9dc0ec75a4f8f35663eb5ed1b1, type: 3}
       propertyPath: m_Name
       value: Tent (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3063651032487044509, guid: f7fccc9dc0ec75a4f8f35663eb5ed1b1, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5318619390354869436, guid: f7fccc9dc0ec75a4f8f35663eb5ed1b1, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6104571490052592918, guid: f7fccc9dc0ec75a4f8f35663eb5ed1b1, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7286450636419113221, guid: f7fccc9dc0ec75a4f8f35663eb5ed1b1, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

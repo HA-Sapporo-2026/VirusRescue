@@ -63,6 +63,9 @@ public class HelpDisplay : MonoBehaviour
         direction = direction.normalized * DisplayDistance;
 
         transform.position = direction + (Vector2)player.transform.position;
+        transform.localRotation = Quaternion.Euler(0,0,Mathf.Atan2(direction.y,direction.x)*Mathf.Rad2Deg-90);
+        //transform.rotation = Quaternion.LookRotation(direction);
+
         if (!targetHuman.activeInHierarchy)
         {
             gameObject.SetActive(false);

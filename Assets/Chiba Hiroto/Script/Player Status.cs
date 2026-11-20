@@ -150,14 +150,20 @@ public class PlayerStatus : MonoBehaviour
     }
     public void Escape(Collider2D tent)
     {
+        CountHumans count = tent.gameObject.GetComponent<CountHumans>();
+        if (count == null) return;
         for (int i = 0; i < escorted_Hp.Length; i++)
         {
-            if (escorted_Hp[i] > 0)
+            if (count.countHumans < count.maxHumans)
             {
-                escorted_Hp[i] = -99;
-                Experience += ExpFor_A_Human;
-                Score += ScoreFor_A_Human;
-                Saved++;
+                if (escorted_Hp[i] > 0)
+                {
+                    escorted_Hp[i] = -99;
+                    count.PlusCount(1);
+                    Experience += ExpFor_A_Human;
+                    Score += ScoreFor_A_Human;
+                    Saved++;
+                }
             }
         }
     }
