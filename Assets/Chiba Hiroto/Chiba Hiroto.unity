@@ -1213802,11 +1213802,11 @@ MonoBehaviour:
   dontDestroyOnLoad: 0
   audioSource: {fileID: 0}
   bgmClips:
-  - {fileID: 0}
+  - {fileID: 8300000, guid: 5327e43b2d72dcb42ae9dc81bc03b5c7, type: 3}
   - {fileID: 0}
   - {fileID: 0}
   seClips:
-  - {fileID: 8300000, guid: 5327e43b2d72dcb42ae9dc81bc03b5c7, type: 3}
+  - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
 --- !u!4 &1766544991

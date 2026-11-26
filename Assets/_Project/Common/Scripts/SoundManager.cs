@@ -30,7 +30,7 @@ namespace VirusRescue
         {
             for (int i = 0; ; i++)
             {
-                if (seClips[i] = null) return;
+                if (seClips[i] == null) return;
                 if (seName == seClips[i].name)
                 {
                     audioSource.PlayOneShot(seClips[i]);

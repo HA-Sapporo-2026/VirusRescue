@@ -1,6 +1,7 @@
 using UnityEngine;
 using TMPro;
 using UnityEngine.SceneManagement;
+using VirusRescue;
 
 public class PlayerStatus : MonoBehaviour
 {
@@ -195,7 +196,8 @@ public class PlayerStatus : MonoBehaviour
     public void LevelUpStatusUp(int currentLevel)
     {
         //audioSource.PlayOneShot(levelUp);
-        SoundManager.
+        //SoundManager.Instance.PlayAudio("LevelUpSE");
+        VirusRescue.SoundManager.Instance.PlayAudio("LevelUpSE");
         if (currentLevel == 5)
         {
             sword.attackAverage *= 1.1f;
