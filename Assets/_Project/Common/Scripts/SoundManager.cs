@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using Unity.VisualScripting;
+using UnityEditor;
 using UnityEngine;
 
 namespace VirusRescue
@@ -12,19 +13,23 @@ namespace VirusRescue
         [SerializeField] AudioSource audioSource;
             [SerializeField] List<AudioClip> bgmClips; // Bgmとして扱う音声ファイルをリストで保持
             [SerializeField] List<AudioClip> seClips; // Seとして扱う音声ファイルをリストで保持
-
+        void Start()
+        {
+            PlayBgm("IngameBGM");
+        }
             // 引数では再生したいBgmの名前を渡すことで外部から再生指示を行う
         public void PlayBgm(string bgmName)
         {
             for(int i = 0;;i++)
             {
-                if (bgmClips[i] = null) return;
+                if (bgmClips[i] == null) return;
                 if (bgmName == bgmClips[i].name)
                 {
                     audioSource.PlayOneShot(bgmClips[i]);
                     break;
                 }
             }
+            Debug.Log(bgmName);
         }
         public void PlayAudio(string seName)
         {
