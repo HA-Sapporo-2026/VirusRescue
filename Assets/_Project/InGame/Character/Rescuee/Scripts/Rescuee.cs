@@ -4,7 +4,6 @@ namespace VirusRescue
 {
     public class Rescuee : MonoBehaviour
     {
-
         [SerializeField] float callTimer = 0;
         
         [SerializeField] float callTime = 5;

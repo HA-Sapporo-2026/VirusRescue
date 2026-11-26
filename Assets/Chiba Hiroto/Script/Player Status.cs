@@ -197,7 +197,7 @@ public class PlayerStatus : MonoBehaviour
     {
         //audioSource.PlayOneShot(levelUp);
         //SoundManager.Instance.PlayAudio("LevelUpSE");
-        VirusRescue.SoundManager.Instance.PlayAudio("LevelUpSE");
+        VirusRescue.SoundManager.Instance.PlaySE("LevelUpSE");
         if (currentLevel == 5)
         {
             sword.attackAverage *= 1.1f;

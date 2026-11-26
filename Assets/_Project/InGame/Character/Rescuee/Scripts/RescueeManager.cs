@@ -12,6 +12,8 @@ namespace VirusRescue
 
         // 種類ごとの要救助者の最大数
         [SerializeField] int maxRescueesPerType;
+        // 要救助者のスプライトの種類数
+        [SerializeField] int rescueesTypeNum;
         // 要救助者がマップに現れるまでのタイマー変数
         [SerializeField] float appearTimer;
         [SerializeField] float appearTime;
@@ -30,21 +32,15 @@ namespace VirusRescue
         // 要救助者が現れてよいマップの範囲の左下部分
         [SerializeField] Vector2[] appearRangeMinus;
 
-
-
         // Start is called once before the first execution of Update after the MonoBehaviour is created
         void Start()
         {
-
             // 指定された最大人数分の配列を生成する
-            rescuees = new Rescuee[maxRescueesPerType * 6];
+            rescuees = new Rescuee[maxRescueesPerType * rescueesTypeNum];
 
-            // 要救助者用のプレハブを一つの配列に格納する
-            Rescuee[] prefabs =
-                { variants[0],variants[1],variants[2],variants[3],variants[4],variants[5], };
-            for (int i = 0; i < 6; i++)
+            for (int i = 0; i < rescueesTypeNum; i++)
             {
-                prefab = prefabs[i];
+                prefab = variants[i];
                 for (int j = 0; j < maxRescueesPerType; j++)
                 {
                     int index = j + (i * maxRescueesPerType);
@@ -52,16 +48,18 @@ namespace VirusRescue
                     rescuees[index].gameObject.SetActive(false);
                 }
             }
-            rangeDontSelect = new bool[6];
+            rangeDontSelect = new bool[maxRescueesPerType * rescueesTypeNum];
             appearTimer = appearTime;
         }
         // Update is called once per frame
         void Update()
         {
+            // 現在の要救助者の数を測定するために、1度リセットします
             int appearedRescuee = 0;
 
             for (int i = 0; i < rescuees.Length; i++)
             {
+                // 要救助者がアクティブであれば、加算します。
                 if (rescuees[i].gameObject.activeInHierarchy) appearedRescuee++;
             }
 
@@ -76,10 +74,10 @@ namespace VirusRescue
                     rangeDontSelect[f] = true;
                 }
             }
-            rangeCanSelect = 2;
-
+            // アクティブな要救助者の人数が、登場できる人数に満たなければ、
             if (appearedRescuee < maxRescueesCanAppear)
             {
+                // 生成タイマーを作動させ、タイマーが0を下回ったら一定確率で生成する。
                 if (appearTimer <= 0)
                 {
                     float per = 0;
